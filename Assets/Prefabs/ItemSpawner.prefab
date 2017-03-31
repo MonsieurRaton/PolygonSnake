@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &132090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430462}
+  - 33: {fileID: 3345260}
+  - 114: {fileID: 11497760}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430462
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.75, y: 0, z: 5.629165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!33 &3345260
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132090}
+  m_Mesh: {fileID: 4300000, guid: 8594a8a51e042bb44b4fd2e1787a842d, type: 3}
+--- !u!114 &11497760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af59b2b0cb801a4aa251307ef34e6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position:
+    x: 13
+    y: 0
+    z: 6
+  items:
+  - {fileID: 11491764, guid: 5bf624ac4f6550c42a562f4c6d715579, type: 2}
+  - {fileID: 11429588, guid: 344731ad2ba8cb5469bee06ee2e46466, type: 2}
+  spawnDelayMin: 1.2
+  spawnDelayMax: 2.25
+  maxItems: 15
+  spawnPositions:
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 5
+      y: 0
+      z: 1
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 5
+      y: 0
+      z: 3
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 10
+      y: 0
+      z: 4
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 23
+      y: 0
+      z: 2
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 19
+      y: 0
+      z: 8
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 11
+      y: 0
+      z: 14
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 7
+      y: 0
+      z: 8
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 3
+      y: 0
+      z: 12
+  - active: 1
+    debug: 0
+    inUse: {fileID: 0}
+    hexaGridPosition:
+      x: 14
+      y: 0
+      z: 7
+  visualMesh: {fileID: 4300000, guid: 57f62bdc7d572c14685ec25f35abf150, type: 3}
+  visualMeshAngle: {x: 0, y: 0, z: 0}
+  visualMeshScale: 0.8
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 132090}
+  m_IsPrefabParent: 1

@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 05bbd68fad065d4418e348a80c0a03a4
+timeCreated: 1433506332
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Explosion_Nuage
+    100002: //RootNode
+    100004: Pouf_OS0
+    100006: Pouf_OS1
+    100008: Pouf_OS2
+    100010: Pouf_OS3
+    100012: Pouf_OS4
+    100014: Pouf_OS5
+    100016: Pouf_OS6
+    100018: Pouf_OS7
+    100020: Pouf_OS8
+    100022: Pouf_OS9
+    100024: Pouf_OSA
+    100026: Pouf_OSB
+    100028: Pouf_OSC
+    100030: Pouf_OSD
+    100032: Pouf_OSE
+    100034: Pouf_OSM
+    400000: //RootNode
+    400002: Explosion_Nuage
+    400004: Pouf_OS0
+    400006: Pouf_OS1
+    400008: Pouf_OS2
+    400010: Pouf_OS3
+    400012: Pouf_OS4
+    400014: Pouf_OS5
+    400016: Pouf_OS6
+    400018: Pouf_OS7
+    400020: Pouf_OS8
+    400022: Pouf_OS9
+    400024: Pouf_OSA
+    400026: Pouf_OSB
+    400028: Pouf_OSC
+    400030: Pouf_OSD
+    400032: Pouf_OSE
+    400034: Pouf_OSM
+    4300000: Explosion_Nuage
+    7400000: Explode
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Explosion_Nuage
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Explode
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 16
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Explosion_Nuage
+        weight: 1
+      - path: Pouf_OSM
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS0
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS1
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS2
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS3
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS4
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS5
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS6
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS7
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS8
+        weight: 1
+      - path: Pouf_OSM/Pouf_OS9
+        weight: 1
+      - path: Pouf_OSM/Pouf_OSA
+        weight: 1
+      - path: Pouf_OSM/Pouf_OSB
+        weight: 1
+      - path: Pouf_OSM/Pouf_OSC
+        weight: 1
+      - path: Pouf_OSM/Pouf_OSD
+        weight: 1
+      - path: Pouf_OSM/Pouf_OSE
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
