@@ -6,15 +6,11 @@ public class GameBoardUI : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
     [SerializeField] private Text timeText;
-
-    [Header("VisualDebug")]
+    
     public float time;
     public int score;
-    public bool active;
 
-    void Update() {
-        if (!active) return;
-
+    void Update() { // Exécutée que si est activé
         if (time > 0) {
             time -= Time.deltaTime;
             if (time < 0) time = 0;
@@ -22,6 +18,13 @@ public class GameBoardUI : MonoBehaviour
 
         ShowScore(score);
         ShowTime(time);
+    }
+
+    public void Run() {
+        score = 0;
+        time = 150;
+        Show(true);
+        enabled = true;
     }
 
     public void Show(bool show) {

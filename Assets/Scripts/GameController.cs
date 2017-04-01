@@ -6,16 +6,16 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
 
-    [Header("Cameras")]
+    /*[Header("Cameras")]
     public Camera mainCamera;
-    CameraFollow mainCameraFollow;
+    CameraFollow mainCameraFollow;*/
     //public Camera uiCamera;
 
     [Header("Canvas")]
     public Canvas mainCanvas;
 
     [Header("Game")]
-    public SceneController sceneController;
+    public SceneLevel sceneLevel;
     public GameBoardUI gameBoard;
     public StartingPosition[] startingPositions;
     public ItemSpawner[] itemSpawners;
@@ -26,17 +26,18 @@ public class GameController : MonoBehaviour
     public List<HexaEntity> entities;
     public List<GameObject> sceneObjects;
 
+    [SerializeField] private GameObject startButton;
 
     void Awake()
     {
         instance = this;
-        mainCameraFollow = mainCamera.GetComponent<CameraFollow>();
+        //mainCameraFollow = mainCamera.GetComponent<CameraFollow>();
     }
 
 
     void Start()
     {
-        sceneController.Load();
+        sceneLevel.Load();
     }
 
 
@@ -46,20 +47,16 @@ public class GameController : MonoBehaviour
             SceneLoader.QuitApplication();
             //SceneLoader.LoadScene(SceneLoader.SceneIndexes.StartingScene);
             return;
-        } else if (sceneController.CanBeStarted && Input.GetKeyDown(KeyCode.O)) {
-            sceneController.Run();
+        } else if (sceneLevel.CanBeStarted && Input.GetKeyDown(KeyCode.O)) {
+            sceneLevel.Run();
+        }
+
+        if (sceneLevel.CanBeStarted) {
+            startButton.SetActive(true);
         }
     }
 
-	void OnGUI(){
-		if (sceneController.CanBeStarted){
-			if(GUI.Button(new Rect(0,0,150,100),"START")){
-				sceneController.Run();
-			}
-		}
-	}
-
-    public void SetMainCameraEnable(bool enable)
+    /*public void SetMainCameraEnable(bool enable)
     {
         mainCamera.enabled = enabled;
     }
@@ -67,20 +64,12 @@ public class GameController : MonoBehaviour
     public void AddToCameraAndFollow(Transform target)
     {
         mainCameraFollow.AddAndFollow(target);
-    }
+    }*/
 
     /*public void SetUICameraEnable(bool enable)
     {
         uiCamera.gameObject.SetActive(enable);// enable doesn't work on this ne for some reason...
     }*/
-
-
-    public void AttachToMainCanvas(Transform ui, bool resizeToFit)
-    {
-        ui.SetParent(mainCanvas.transform, false);
-
-        if (resizeToFit) ui.GetComponent<RectTransform>().sizeDelta = MainCanvasSize;
-    }
 
     public Vector2 MainCanvasSize { get { return mainCanvas.pixelRect.size; } }
 

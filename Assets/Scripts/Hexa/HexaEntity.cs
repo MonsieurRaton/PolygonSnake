@@ -33,20 +33,20 @@ public class HexaEntity : MonoBehaviour
 
     [Header("Debug")]
     public string debugMessage;
-    public KeyCode keyLeft = KeyCode.Keypad4;
-    public KeyCode keyRight = KeyCode.Keypad6;
-    public KeyCode keyGrow = KeyCode.Space;
+    private KeyCode keyLeft = KeyCode.LeftArrow;
+    private KeyCode keyRight = KeyCode.RightArrow;
+    private KeyCode keyGrow = KeyCode.Space;
     public bool markedForDeletion;
 
     Rect leftZone;
     Rect rightZone;
 
-    public bool PauseTest { get; set; }
+    public bool pauseTest;
 
 
     void Awake()
     {
-        PauseTest = true;
+        pauseTest = true;
     }
 
     void Start()
@@ -70,9 +70,9 @@ public class HexaEntity : MonoBehaviour
     }
 
 	void OnGUI(){
-		if (PauseTest){
+		if (pauseTest){
 			if(GUI.Button(new Rect(0,0,150,100),"PAUSE")){
-				PauseTest = false;
+				pauseTest = false;
 			}
 		}
 	}
@@ -81,8 +81,8 @@ public class HexaEntity : MonoBehaviour
     {
         if (markedForDeletion) return;
 
-        if (PauseTest && Input.GetKeyDown(KeyCode.P)) PauseTest = false;
-        if (PauseTest) return;
+        if (pauseTest && Input.GetKeyDown(KeyCode.P)) pauseTest = false;
+        if (pauseTest) return;
 
 
         hasUpdated = true;
@@ -109,7 +109,7 @@ public class HexaEntity : MonoBehaviour
     void FixedUpdate()
     {
         if (markedForDeletion) return;//TODO : pause around here too
-        if (PauseTest) return;
+        if (pauseTest) return;
 
 
         speed.IncreaseStep();

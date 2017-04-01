@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     public int yMax;
     public int zMax;
 
-    public bool HasLoaded { get; set; }
+    public bool hasLoaded;
 
 
     public HexaTile GetTileAt(HexaGridPosition pos)
@@ -26,7 +26,11 @@ public class Level : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null) {
+            instance = this;
+        } else {
+            Debug.LogError("Deux Level sur scène");
+        }
     }
 
     public void Load()
@@ -117,14 +121,14 @@ public class Level : MonoBehaviour
             result.transform.GetComponent<MeshFilter>().mesh = new Mesh();
             result.transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
             result.GetComponent<MeshRenderer>().sharedMaterial = sharedMats[mat];
-            //result.AddComponent<MeshCollider>();
             result.SetActive(true);
+            result.isStatic = true;
         }
 
         Debug.Log("Combined. Ok.\n");
 
         yield return new WaitForEndOfFrame();
 
-        HasLoaded = true;
+        hasLoaded = true;
     }
 }

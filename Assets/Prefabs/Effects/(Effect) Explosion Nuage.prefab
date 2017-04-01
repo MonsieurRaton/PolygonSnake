@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 438114}
+  - component: {fileID: 438114}
   m_Layer: 0
   m_Name: Pouf_OS8
   m_TagString: Untagged
@@ -20,9 +20,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 485184}
+  - component: {fileID: 485184}
   m_Layer: 0
   m_Name: Pouf_OSB
   m_TagString: Untagged
@@ -35,9 +35,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 478052}
+  - component: {fileID: 478052}
   m_Layer: 0
   m_Name: Pouf_OS3
   m_TagString: Untagged
@@ -50,10 +50,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 489460}
-  - 137: {fileID: 13790184}
+  - component: {fileID: 489460}
+  - component: {fileID: 13790184}
   m_Layer: 0
   m_Name: Explosion_Nuage
   m_TagString: Untagged
@@ -66,9 +66,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 477488}
+  - component: {fileID: 477488}
   m_Layer: 0
   m_Name: Pouf_OSM
   m_TagString: Untagged
@@ -81,9 +81,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 427140}
+  - component: {fileID: 427140}
   m_Layer: 0
   m_Name: Pouf_OSE
   m_TagString: Untagged
@@ -96,9 +96,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 456034}
+  - component: {fileID: 456034}
   m_Layer: 0
   m_Name: Pouf_OSC
   m_TagString: Untagged
@@ -111,10 +111,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 499340}
-  - 111: {fileID: 11182018}
+  - component: {fileID: 499340}
+  - component: {fileID: 11182018}
   m_Layer: 0
   m_Name: Explosion_Nuage
   m_TagString: Untagged
@@ -127,9 +127,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 444162}
+  - component: {fileID: 444162}
   m_Layer: 0
   m_Name: Pouf_OS7
   m_TagString: Untagged
@@ -142,10 +142,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 480898}
-  - 114: {fileID: 11497232}
+  - component: {fileID: 480898}
+  - component: {fileID: 11497232}
   m_Layer: 0
   m_Name: (Effect) Explosion Nuage
   m_TagString: Untagged
@@ -158,9 +158,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 413588}
+  - component: {fileID: 413588}
   m_Layer: 0
   m_Name: Pouf_OS2
   m_TagString: Untagged
@@ -173,9 +173,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 484090}
+  - component: {fileID: 484090}
   m_Layer: 0
   m_Name: Pouf_OS6
   m_TagString: Untagged
@@ -188,9 +188,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 451982}
+  - component: {fileID: 451982}
   m_Layer: 0
   m_Name: Pouf_OSA
   m_TagString: Untagged
@@ -203,9 +203,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 492366}
+  - component: {fileID: 492366}
   m_Layer: 0
   m_Name: Pouf_OS4
   m_TagString: Untagged
@@ -218,9 +218,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 467314}
+  - component: {fileID: 467314}
   m_Layer: 0
   m_Name: Pouf_OS5
   m_TagString: Untagged
@@ -233,9 +233,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 479374}
+  - component: {fileID: 479374}
   m_Layer: 0
   m_Name: Pouf_OSD
   m_TagString: Untagged
@@ -248,9 +248,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 454776}
+  - component: {fileID: 454776}
   m_Layer: 0
   m_Name: Pouf_OS9
   m_TagString: Untagged
@@ -263,9 +263,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 449752}
+  - component: {fileID: 449752}
   m_Layer: 0
   m_Name: Pouf_OS1
   m_TagString: Untagged
@@ -278,9 +278,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 430148}
+  - component: {fileID: 430148}
   m_Layer: 0
   m_Name: Pouf_OS0
   m_TagString: Untagged
@@ -300,6 +300,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &427140
 Transform:
   m_ObjectHideFlags: 1
@@ -312,6 +313,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430148
 Transform:
   m_ObjectHideFlags: 1
@@ -324,6 +326,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &438114
 Transform:
   m_ObjectHideFlags: 1
@@ -336,6 +339,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &444162
 Transform:
   m_ObjectHideFlags: 1
@@ -348,6 +352,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449752
 Transform:
   m_ObjectHideFlags: 1
@@ -360,6 +365,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &451982
 Transform:
   m_ObjectHideFlags: 1
@@ -372,6 +378,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &454776
 Transform:
   m_ObjectHideFlags: 1
@@ -384,6 +391,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &456034
 Transform:
   m_ObjectHideFlags: 1
@@ -397,6 +405,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &467314
 Transform:
   m_ObjectHideFlags: 1
@@ -409,6 +418,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &477488
 Transform:
   m_ObjectHideFlags: 1
@@ -436,6 +446,7 @@ Transform:
   - {fileID: 427140}
   m_Father: {fileID: 499340}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &478052
 Transform:
   m_ObjectHideFlags: 1
@@ -448,6 +459,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479374
 Transform:
   m_ObjectHideFlags: 1
@@ -460,6 +472,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &480898
 Transform:
   m_ObjectHideFlags: 1
@@ -467,12 +480,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.3823175, y: 2.7559114, z: -2.0472827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 499340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &484090
 Transform:
   m_ObjectHideFlags: 1
@@ -485,6 +499,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &485184
 Transform:
   m_ObjectHideFlags: 1
@@ -497,6 +512,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &489460
 Transform:
   m_ObjectHideFlags: 1
@@ -509,6 +525,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 499340}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &492366
 Transform:
   m_ObjectHideFlags: 1
@@ -521,6 +538,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477488}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &499340
 Transform:
   m_ObjectHideFlags: 1
@@ -535,6 +553,7 @@ Transform:
   - {fileID: 477488}
   m_Father: {fileID: 480898}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &11182018
 Animation:
   m_ObjectHideFlags: 1
@@ -561,8 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d468b476b536b1b439e99c9a8ae7d2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  delayValue: 1
+  delay: 5
   rotate: 0
   rotationSpeed: 0
 --- !u!137 &13790184
@@ -574,17 +592,22 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 2707a617afbd8db498b5f75e3f8646f3, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -594,6 +617,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: 05bbd68fad065d4418e348a80c0a03a4, type: 3}
   m_Bones:
   - {fileID: 430148}

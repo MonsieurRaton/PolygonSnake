@@ -11,6 +11,7 @@ public class Patterns : MonoBehaviour
     public int height = 1;
     public bool fillCenter = true;
     public int matsPerLine = 4;
+    public Mesh MESH;
 
     public enum Pattern
     {
@@ -19,11 +20,7 @@ public class Patterns : MonoBehaviour
         Circle
     }
     public Pattern pattern = Pattern.SimpleGrid;
-
-
-    public Mesh MESH { get { return GetComponent<MeshFilter>().sharedMesh; } }
-
-
+    
     public void AlignWithGrid()
     {
         hexaGridPosition = HexaGridPosition.ConvertWorldPosition(transform.position);

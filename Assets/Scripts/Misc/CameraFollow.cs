@@ -2,166 +2,91 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraFollow : MonoBehaviour
-{
-    public bool snap;
+public class CameraFollow : MonoBehaviour {
 
+    public static CameraFollow main;
+    
+    public enum CameraMode { Stopped, Follow, Follow2D}
+    
+    public CameraMode currentMode;
+    public bool followRotation;
     [Space(10)]
     public float smoothPosition = 3.5f;
     public float smoothRotation = 5.5f;
-    public bool follow = false;
-    public bool withOffsets = false;
-    public bool locked = false;
-    public bool followRotation = false;
+    [SerializeField] private Vector3 followOffset;
 
-    [Space(10)]
-    public bool _2D;
-    [Range(1, 64)]
-    public int pixelToUnits = 1;
-
-    public List<Transform> views;
-    public List<Vector3> viewsOffsets;
-    public int viewSelected = 0;
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
-
+    private Transform currentTarget;
 	private Quaternion targetRotation;
-	private float originalAngle;
-	void Awake()
-	{
-        //views = new List<Transform>();
-	
-		targetRotation = new Quaternion ();
 
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
-		originalAngle = originalRotation.eulerAngles.x;
 
-        viewsOffsets.Clear();
-        for (int i = 0; i < views.Count; i++) viewsOffsets.Add(transform.position - views[i].position);
-    }
-
-    void Update()
-    {
-        if (snap) return;
-        if (!follow) return;
-
-        if (_2D)
-        {
-            Follow2D();
-            return;
-        }
-
-        if (!locked && viewSelected >= 0 && viewSelected < views.Count && views[viewSelected] != null)
-        {
-			Vector3 positionOffset = views[viewSelected].forward * viewsOffsets [viewSelected].z;
-			positionOffset += views[viewSelected].right * viewsOffsets [viewSelected].x;
-			positionOffset += views[viewSelected].up * viewsOffsets [viewSelected].y;
-
-			transform.position = Vector3.Lerp(
-				transform.position,
-				views[viewSelected].position + (withOffsets ? positionOffset : Vector3.zero),
-				smoothPosition * Time.deltaTime);
-
-			/*
-            transform.position = Vector3.Lerp(
-                transform.position,
-                views[viewSelected].position + (withOffsets ? viewsOffsets[viewSelected] : Vector3.zero),
-                smoothPosition * Time.deltaTime);
-                */
-
-			if (followRotation) {
-				targetRotation.Set (views [viewSelected].rotation.x, views [viewSelected].rotation.y, views [viewSelected].rotation.z, views [viewSelected].rotation.w);
-
-				targetRotation *= Quaternion.Euler (originalAngle, 0, 0);
-
-				transform.rotation = Quaternion.Lerp (
-					transform.rotation,
-					targetRotation,
-					smoothRotation * Time.deltaTime);
-				
-				/*
-				transform.rotation = Quaternion.Lerp (
-					transform.rotation,
-					views [viewSelected].rotation,
-					smoothRotation * Time.deltaTime);
-					*/
-			}
+    void Awake() {
+        if (main == null) { 
+            main = this;
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!snap) return;
-        if (!locked && viewSelected >= 0 && viewSelected < views.Count && views[viewSelected] != null)
-            transform.position = views[viewSelected].position + (withOffsets ? viewsOffsets[viewSelected] : Vector3.zero);
+    void Update() {
+
+        if (currentMode == CameraMode.Follow) {
+            Vector3 positionOffset = currentTarget.forward * followOffset.z;
+            positionOffset += currentTarget.right * followOffset.x;
+            positionOffset += currentTarget.up * followOffset.y;
+            transform.position = Vector3.Lerp(transform.position,
+                                               currentTarget.position + positionOffset,
+                                               smoothPosition * Time.deltaTime);
+            if (followRotation) {
+                targetRotation = new Quaternion(currentTarget.rotation.x, currentTarget.rotation.y,
+                                                currentTarget.rotation.z, currentTarget.rotation.w);
+
+                targetRotation *= Quaternion.Euler(45, 0, 0);
+
+                transform.rotation = Quaternion.Lerp( transform.rotation,
+                                                      targetRotation,
+                                                      smoothRotation * Time.deltaTime);
+            }
+        } else {
+            transform.position = Vector3.Lerp(transform.position,
+                                   currentTarget.position + Vector3.up * 10,
+                                   smoothPosition * Time.deltaTime);
+            if (followRotation) {
+                targetRotation = new Quaternion(currentTarget.rotation.x, currentTarget.rotation.y,
+                                currentTarget.rotation.z, currentTarget.rotation.w);
+
+                targetRotation *= Quaternion.Euler(90, 0, 0);
+
+                transform.rotation = Quaternion.Lerp(transform.rotation,
+                                                      targetRotation,
+                                                      smoothRotation * Time.deltaTime);
+            }
+        }
+
+
     }
 
-    public void AddAndFollow(Transform target)
-    {
-        ClearViewsAndResetCamera();
-
-        transform.position = target.position + originalPosition;
-
-        views.Add(target);
-        viewsOffsets.Add(transform.position - target.position);
-
-        follow = true;
-        withOffsets = true;
+    public void SetFollow(Transform target) {
+        enabled = true;
+        currentTarget = target;
+        currentMode = CameraMode.Follow;
+        transform.position = currentTarget.position + followOffset;
+        transform.localEulerAngles = Vector3.right * 50;
+    }
+    public void SetFollow(Transform target, bool _2D) {
+        enabled = true;
+        currentTarget = target;
+        if (_2D) {
+            currentMode = CameraMode.Follow2D;
+            transform.position = currentTarget.position + Vector3.up * 5;
+            transform.localEulerAngles = Vector3.right*90;
+        } else {
+            SetFollow(target);
+        }
     }
 
-    // --------------------------------------------------------
-
-    public void SetCurrentAsOriginal()
-    {
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
+    public void StopCamera() {
+        currentMode = CameraMode.Stopped;
+        currentTarget = null;
+        enabled = false;
     }
+    
 
-    public void ClearViewsAndResetCamera()
-    {
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
-        views.Clear();
-        viewsOffsets.Clear();
-        viewSelected = 0;
-    }
-
-    public void AddView(Transform t)
-    {
-        views.Add(t);
-    }
-
-    public void ChangeView(int index)
-    {
-        if (views == null || views.Count == 0)
-            return;
-
-        if (index < 0) index = 0;
-        if (index >= views.Count - 1) index = views.Count - 1;
-
-        viewSelected = index;
-    }
-
-    public float distance;
-    public float factor;
-    public void Follow2D()
-    {
-        Vector3 position = transform.position;
-        distance = Mathf.Abs(position.x - views[viewSelected].position.x);
-        factor = Mathf.Clamp(distance * 1.5f, 1, 5);
-
-        position = Follow2DHelper(position, Mathf.Floor(factor));
-
-        transform.position = position;
-    }
-
-    private Vector3 Follow2DHelper(Vector3 position, float factor)
-    {
-        if (position.x < views[viewSelected].position.x) position.x += PixelToUnitsInc() * factor;
-        if (position.x > views[viewSelected].position.x) position.x -= PixelToUnitsInc() * factor;
-        return position;
-    }
-
-    public float PixelToUnitsInc() { return 1f / (pixelToUnits * 1f); }
 }

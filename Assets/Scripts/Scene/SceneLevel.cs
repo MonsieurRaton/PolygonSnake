@@ -2,11 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SceneLevel : SceneController
+public class SceneLevel : MonoBehaviour
 {
     public LoadingScreen loadingScreen;
     public Level level;
-    public LayerMask effectLayer;
 
     [Space(5)]
     public HexaEntity player;
@@ -16,7 +15,12 @@ public class SceneLevel : SceneController
     public float debugWait = 2;
     public float timeElapsed;
     public bool[] debugTestEvents = new bool[3] { false, false, false };
+    
+    public bool IsRunning { get; set; }
+    public bool HasLoaded { get; set; }
+    public bool GameOver { get; set; }
 
+    public bool CanBeStarted { get { return HasLoaded && GameOver; } }
 
     void Update()
     {
@@ -32,7 +36,7 @@ public class SceneLevel : SceneController
         {
             if (GameController.instance.gameBoard.time == 0)
             {
-                Debug.Log("Time out\n");
+                Debug.Log("Time out");
                 player.TimeOut();
                 return;
             }
@@ -53,7 +57,7 @@ public class SceneLevel : SceneController
         }*/
     }
 
-    public override void Load()
+    public void Load()
     {
         GameOver = true;
 
@@ -67,7 +71,7 @@ public class SceneLevel : SceneController
 
         level.Load();
 
-        while (!level.HasLoaded)
+        while (!level.hasLoaded)
         {
             yield return wait;
         }
@@ -80,7 +84,7 @@ public class SceneLevel : SceneController
     }
 
 
-    public override void Run()
+    public void Run()
     {
         StartCoroutine(RunCoroutine());
     }
@@ -89,19 +93,14 @@ public class SceneLevel : SceneController
     {
         GameOver = false;
         timeElapsed = 0;
-
-        //test-
-        GameController.instance.gameBoard.Show(true);
-        GameController.instance.gameBoard.score = 0;
-        GameController.instance.gameBoard.time = 150;
-        GameController.instance.gameBoard.active = true;
-        //----
+        
+        GameController.instance.gameBoard.Run();
 
         player = Instantiate(snakePrefab);
 
         yield return new WaitForEndOfFrame();
 
-        GameController.instance.AddToCameraAndFollow(player.snake.HeadGameObject.transform);
+        CameraFollow.main.SetFollow(player.snake.HeadGameObject.transform);
 
         IsRunning = true;
     }
