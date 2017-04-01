@@ -1,29 +1,39 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
-public class FPS : MonoBehaviour
-{
-    float deltaTime = 0.0f;
-    public Vector2 position;
+[RequireComponent(typeof(Text))]
+public class FPS : MonoBehaviour {
 
-    void Update()
-    {
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-    }
+	private float updateInterval;	
+	private float accum; // FPS accumulated over the interval
+	private float frames; // Frames drawn over the interval
+	private float timeleft; // Left time for current interval
 
-    void OnGUI()
-    {
-        int w = Screen.width, h = Screen.height;
+    private Text FPSIndicator;
+	
+	void Start () {
+		FPSIndicator = GetComponent<Text>();
+		updateInterval = 0.2f;
+		accum = 0.0f;
+		frames = 0f;
+		timeleft = updateInterval;
+	}
+	
+	void Update () {
+		timeleft -= Time.deltaTime;
+		accum += Time.timeScale/Time.deltaTime;
+		++frames;
+		
+		// Interval ended - update GUI text and start new interval
+		if( timeleft <= 0.0 )
+		{
+            FPSIndicator.text = "FPS : " + (accum / frames).ToString("f2"); // display two fractional digits (f2 format)
 
-        GUIStyle style = new GUIStyle();
+            timeleft = updateInterval;
+			accum = 0.0f;
+			frames = 0f;
 
-        Rect rect = new Rect(position.x, position.y, w, h * 2 / 100);
-        style.alignment = TextAnchor.UpperLeft;
-        style.fontSize = h * 4 / 100;
-        style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
-        float msec = deltaTime * 1000.0f;
-        float fps = 1.0f / deltaTime;
-        string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
-        GUI.Label(rect, text, style);
+        }
+
     }
 }

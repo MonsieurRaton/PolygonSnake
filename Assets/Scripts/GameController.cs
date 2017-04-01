@@ -9,14 +9,14 @@ public class GameController : MonoBehaviour
     [Header("Cameras")]
     public Camera mainCamera;
     CameraFollow mainCameraFollow;
-    public Camera uiCamera;
+    //public Camera uiCamera;
 
     [Header("Canvas")]
     public Canvas mainCanvas;
 
     [Header("Game")]
     public SceneController sceneController;
-    public GameBoard gameBoard;
+    public GameBoardUI gameBoard;
     public StartingPosition[] startingPositions;
     public ItemSpawner[] itemSpawners;
     public Combo[] combos;
@@ -42,19 +42,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        //if (Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape))
-        //{
-        //    SceneLoader.LoadScene(SceneLoader.SceneIndexes.Quit);
-        //    return;
-        //}
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneLoader.LoadScene(SceneLoader.SceneIndexes.StartingScene);
+        if (Input.GetKey(KeyCode.Escape)) {
+            SceneLoader.QuitApplication();
+            //SceneLoader.LoadScene(SceneLoader.SceneIndexes.StartingScene);
             return;
-        }
-
-        if (sceneController.CanBeStarted && Input.GetKeyDown(KeyCode.O))
-        {
+        } else if (sceneController.CanBeStarted && Input.GetKeyDown(KeyCode.O)) {
             sceneController.Run();
         }
     }
@@ -77,10 +69,10 @@ public class GameController : MonoBehaviour
         mainCameraFollow.AddAndFollow(target);
     }
 
-    public void SetUICameraEnable(bool enable)
+    /*public void SetUICameraEnable(bool enable)
     {
         uiCamera.gameObject.SetActive(enable);// enable doesn't work on this ne for some reason...
-    }
+    }*/
 
 
     public void AttachToMainCanvas(Transform ui, bool resizeToFit)

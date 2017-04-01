@@ -46,11 +46,11 @@ public class SceneLevel : SceneController
             debugTestEvents[0] = true;
         }
 
-        if (!debugTestEvents[1] && timeElapsed >= 10)
+        /*if (!debugTestEvents[1] && timeElapsed >= 10)
         {
             GameController.instance.combos[0].StartCombo();
             debugTestEvents[1] = true;
-        }
+        }*/
     }
 
     public override void Load()
@@ -62,22 +62,20 @@ public class SceneLevel : SceneController
 
     IEnumerator LoadCoroutine()
     {
+        WaitForSeconds wait = new WaitForSeconds(0.2f);
         loadingScreen.Init();
 
         level.Load();
 
         while (!level.HasLoaded)
         {
-            yield return new WaitForSeconds(1);
+            yield return wait;
         }
 
         yield return new WaitForSeconds(debugWait);
 
         loadingScreen.Destroy();
-
-        GameController.instance.SetMainCameraEnable(true);
-        GameController.instance.SetUICameraEnable(false);
-
+        
         HasLoaded = true;
     }
 
@@ -93,7 +91,7 @@ public class SceneLevel : SceneController
         timeElapsed = 0;
 
         //test-
-        GameController.instance.gameBoard.Show();
+        GameController.instance.gameBoard.Show(true);
         GameController.instance.gameBoard.score = 0;
         GameController.instance.gameBoard.time = 150;
         GameController.instance.gameBoard.active = true;

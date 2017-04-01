@@ -4,10 +4,29 @@ using System.Collections;
 
 public class GameBoardUI : MonoBehaviour
 {
-    public Text scoreText;
-    public Text timeMinText;
-    public Text timeSecText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text timeText;
 
+    [Header("VisualDebug")]
+    public float time;
+    public int score;
+    public bool active;
+
+    void Update() {
+        if (!active) return;
+
+        if (time > 0) {
+            time -= Time.deltaTime;
+            if (time < 0) time = 0;
+        }
+
+        ShowScore(score);
+        ShowTime(time);
+    }
+
+    public void Show(bool show) {
+        gameObject.SetActive(show);
+    }
 
     public void ShowScore(int score)
     {
@@ -16,7 +35,6 @@ public class GameBoardUI : MonoBehaviour
 
     public void ShowTime(float time)
     {
-        timeMinText.text = Mathf.Floor(time / 60).ToString("00");
-        timeSecText.text = Mathf.Floor(time % 60).ToString("00");
+        timeText.text = Mathf.Floor(time / 60).ToString("00") + ":" + Mathf.Floor(time % 60).ToString("00");
     }
 }
