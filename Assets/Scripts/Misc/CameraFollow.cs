@@ -82,7 +82,7 @@ public class CameraFollow : MonoBehaviour {
         }
     }
 
-    public void StopCamera() {
+    public void StopFollowing() {
         currentMode = CameraMode.Stopped;
         currentTarget = null;
         enabled = false;

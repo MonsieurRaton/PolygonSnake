@@ -130,7 +130,6 @@ public class Snake : MonoBehaviour
         {
             Debug.Log("Fatal damage\n");
             Entity.Destroy();
-            CameraFollow.main.StopCamera();
             return;
         }
 
