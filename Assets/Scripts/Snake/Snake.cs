@@ -81,7 +81,7 @@ public class Snake : MonoBehaviour
             block++;
             if (block >= blockCycleLimit)
             {
-                Debug.Log("Block time limit\n");
+                Debug.Log("Block time limit");
                 Entity.Destroy();
                 return;
             }
@@ -103,7 +103,12 @@ public class Snake : MonoBehaviour
             growth--;
             if (growth > 0)
             {
-                if (parts.Count >= maxParts) { growth = 0; Debug.Log("LIMIT \n"); } else { Debug.Log(growth + " more left \n"); }
+                if (parts.Count >= maxParts) {
+                    growth = 0;
+                    //Debug.Log("LIMIT \n");
+                } //else {
+                //    Debug.Log(growth + " more left \n");
+                //}
             }
         }
 
@@ -136,14 +141,16 @@ public class Snake : MonoBehaviour
             parts.RemoveAt(i);
         }
 
-        if (index - 1 > 0) parts[index - 1].snakePhysics.ShowVisual((int)PartType.Tail);
+        if (index - 1 > 0) {
+            parts[index - 1].snakePhysics.ShowVisual((int)PartType.Tail);
+        }
 
         Debug.Log("Chain destroyed at " + index + "\n");
     }
 
     public void Block()
     {
-        Debug.Log("Block damage\n");
+        Debug.Log("Block damage");
         DamageToHalf();
         block++;
     }

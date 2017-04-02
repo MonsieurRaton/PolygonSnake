@@ -33,20 +33,20 @@ public class HexaEntity : MonoBehaviour
 
     [Header("Debug")]
     public string debugMessage;
-    public KeyCode keyLeft = KeyCode.Keypad4;
-    public KeyCode keyRight = KeyCode.Keypad6;
-    public KeyCode keyGrow = KeyCode.Space;
+    private KeyCode keyLeft = KeyCode.LeftArrow;
+    private KeyCode keyRight = KeyCode.RightArrow;
+    private KeyCode keyGrow = KeyCode.Space;
     public bool markedForDeletion;
 
     Rect leftZone;
     Rect rightZone;
 
-    public bool PauseTest { get; set; }
+    public float timeBeforeStart;
 
 
     void Awake()
     {
-        PauseTest = true;
+        timeBeforeStart = 3;
     }
 
     void Start()
@@ -69,47 +69,61 @@ public class HexaEntity : MonoBehaviour
         }
     }
 
-	void OnGUI(){
-		if (PauseTest){
+    /*void OnGUI(){
+		if (timeBeforeStart > 0){
 			if(GUI.Button(new Rect(0,0,150,100),"PAUSE")){
-				PauseTest = false;
+				timeBeforeStart = 0;
 			}
 		}
-	}
+	}*/
 
-    void Update()
-    {
+    void Update() {
         if (markedForDeletion) return;
-
-        if (PauseTest && Input.GetKeyDown(KeyCode.P)) PauseTest = false;
-        if (PauseTest) return;
+        
+        if (timeBeforeStart > 0) {
+            timeBeforeStart -= Time.deltaTime;
+            GameBoardUI.main.SetDecompteTextActive(true);
+            GameBoardUI.main.SetDecompteText(timeBeforeStart);
+            if (timeBeforeStart < 0) {
+                timeBeforeStart = 0;
+                GameBoardUI.main.SetDecompteTextActive(false);
+            }
+            
+            return;
+        }
 
 
         hasUpdated = true;
 
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            foreach (Touch touch in Input.touches)
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    if (!turnLeft && leftZone.Contains(touch.position)) turnLeft = true;
-                    if (!turnRight && rightZone.Contains(touch.position)) turnRight = true;
+#if UNITY_ANDROID && !UNITY_EDITOR
+        foreach (Touch touch in Input.touches) {
+            if (touch.phase == TouchPhase.Began) {
+                if (!turnLeft && leftZone.Contains(touch.position)) {
+                    turnLeft = true;
+                }
+                if (!turnRight && rightZone.Contains(touch.position)) {
+                    turnRight = true;
                 }
             }
         }
-        else
-        {
-            if (!turnLeft && Input.GetKeyDown(keyLeft)) turnLeft = true;
-            if (!turnRight && Input.GetKeyDown(keyRight)) turnRight = true;
-            if (snake && Input.GetKeyDown(keyGrow)) snake.Grow(1);
+#else
+        if (!turnLeft && Input.GetKeyDown(keyLeft)) {
+            turnLeft = true;
         }
+        if (!turnRight && Input.GetKeyDown(keyRight)) {
+            turnRight = true;
+        }
+        if (snake && Input.GetKeyDown(keyGrow)) {
+            snake.Grow(1);
+        }
+
+#endif
     }
 
     void FixedUpdate()
     {
-        if (markedForDeletion) return;//TODO : pause around here too
-        if (PauseTest) return;
+        if (markedForDeletion) return; //TODO : pause around here too
+        if (timeBeforeStart > 0) return;
 
 
         speed.IncreaseStep();
@@ -263,7 +277,7 @@ public class HexaEntity : MonoBehaviour
         if (markedForDeletion) return; markedForDeletion = true;
 
         GameController.instance.UnRegisterEntity(this);
-
+        CameraFollow.main.StopFollowing();
         if (snake != null) snake.Destroy();
         Destroy(gameObject);
     }
