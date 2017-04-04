@@ -6,9 +6,15 @@ using UnityEditor;
 [CustomEditor(typeof(Tile))]
 public class TileEditor : Editor {
 
+
+    private Tile tile;
+
+    void OnEnable() {
+        tile = (Tile)target;        
+    }
+
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
-        Tile tile = (Tile)target;
 
         tile.transform.position = Utility.PosistionToGrid(tile.transform.position);
         EditorGUILayout.LabelField("Position : X:" + tile.transform.position.x +

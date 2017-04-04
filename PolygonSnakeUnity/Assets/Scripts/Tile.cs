@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
 
-	// Use this for initialization
+    [SerializeField] private bool isWalkable;
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

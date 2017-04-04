@@ -7,7 +7,7 @@ public class Map : MonoBehaviour {
 
     public static Map main;
 
-    public Tile[,] map;
+    public Tile[,] map { get; private set; }
 
     void Awake () {
         if (main == null) {
