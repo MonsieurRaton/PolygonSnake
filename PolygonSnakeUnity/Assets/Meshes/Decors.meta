@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:PolygonSnakeUnity/Assets/Scripts.meta
+guid: 2755376f9da656943879e255b349d9a9
+folderAsset: yes
+timeCreated: 1491333529
+=======
 guid: a55485f2e309f194b9f660b85a86f059
 folderAsset: yes
 timeCreated: 1491429577
+>>>>>>> refs/remotes/MonsieurRaton/master:PolygonSnakeUnity/Assets/Meshes/Decors.meta
 licenseType: Free
 DefaultImporter:
   userData: 
