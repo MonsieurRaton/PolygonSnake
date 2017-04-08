@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 96140200e16887d4bae102bb3d5765f5
 timeCreated: 1491169651
+=======
+guid: 3de0d35754761de44ac9489fb75de406
+timeCreated: 1491427843
+>>>>>>> refs/remotes/MonsieurRaton/master
 licenseType: Free
 NativeFormatImporter:
   userData: 
