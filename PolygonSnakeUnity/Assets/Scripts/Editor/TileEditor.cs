@@ -6,7 +6,6 @@ using UnityEditor;
 [CustomEditor(typeof(Tile))]
 public class TileEditor : Editor {
 
-
     private Tile tile;
 
     void OnEnable() {
@@ -19,12 +18,12 @@ public class TileEditor : Editor {
         if (tile.transform.position != Utility.PosistionToGrid(tile.transform.position)) {
             tile.transform.position = Utility.PosistionToGrid(tile.transform.position);
             if (tile.gameObject.isStatic == false) {
-                Debug.LogWarning("Une tile n'est pas static");
+                Debug.LogWarning("La tuile \"" + tile.gameObject.name + "\" n'est pas static");
             }
         }
 
-        EditorGUILayout.LabelField("Position : X:" + tile.transform.position.x +
-                                    " Y:" + tile.transform.position.y +
+        EditorGUILayout.LabelField("Position sur grille => X:" + tile.transform.position.x +
+                                    " Y:" + (int)(tile.transform.position.y*2f) +
                                     " Z:" + tile.transform.position.z
                                     );
 
