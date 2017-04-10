@@ -16,15 +16,17 @@ public class TileEditor : Editor {
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
 
-        tile.transform.position = Utility.PosistionToGrid(tile.transform.position);
+        if (tile.transform.position != Utility.PosistionToGrid(tile.transform.position)) {
+            tile.transform.position = Utility.PosistionToGrid(tile.transform.position);
+            if (tile.gameObject.isStatic == false) {
+                Debug.LogWarning("Une tile n'est pas static");
+            }
+        }
+
         EditorGUILayout.LabelField("Position : X:" + tile.transform.position.x +
                                     " Y:" + tile.transform.position.y +
                                     " Z:" + tile.transform.position.z
                                     );
-
-        if (tile.gameObject.isStatic == false) {
-            Debug.LogWarning("Une tile n'est pas static");
-        }
 
     }
 
