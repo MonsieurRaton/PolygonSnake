@@ -11,6 +11,9 @@ public class Snake : MonoBehaviour {
     [SerializeField] private SnakeVisuals snakeVisuals;
     private SnakeVisual myVisual;
 
+    [SerializeField] private float speed;
+    [SerializeField] private float speedRotation;
+
     void Start () {
         myVisual = snakeVisuals.GetVisualFromType(myType);
         GetComponent<MeshFilter>().mesh = myVisual.meshHead;
@@ -25,6 +28,27 @@ public class Snake : MonoBehaviour {
             }
         }
 
+    }
+
+
+    private void Update() {
+        transform.Translate(0, 0, speed * Time.deltaTime);
+        if (Input.GetAxisRaw("Horizontal") != 0) {
+            transform.Rotate(Input.GetAxisRaw("Horizontal") * Vector3.up * speedRotation * Time.deltaTime);
+        }
+
+        queue[0].transform.LookAt(transform.position - transform.forward * 0.5f);
+        queue[0].transform.Translate(0, 0, speed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, queue[0].transform.position) < 1) {
+            queue[0].transform.Translate(0, 0, Vector3.Distance(transform.position, queue[0].transform.position) - 1);
+        }
+        for (int i = 1; i < queue.Count; i++) {
+            queue[i].transform.LookAt(queue[i - 1].transform.position - queue[i - 1].transform.forward*0.5f);
+            queue[i].transform.Translate(0, 0, speed * Time.deltaTime);
+            if(Vector3.Distance(queue[i].transform.position, queue[i-1].transform.position) < 1){
+                queue[i].transform.Translate(0, 0, Vector3.Distance(queue[i].transform.position, queue[i - 1].transform.position)-1);
+            }
+        }
     }
 	
 }
