@@ -38,11 +38,7 @@ public class CameraFollow : MonoBehaviour {
                                                currentTarget.position + positionOffset,
                                                smoothPosition * Time.deltaTime);
             if (followRotation) {
-                targetRotation = currentTarget.rotation;
-                    /*new Quaternion(currentTarget.rotation.x, currentTarget.rotation.y,
-                                                currentTarget.rotation.z, currentTarget.rotation.w);*/
-
-                targetRotation *= Quaternion.Euler(35, 0, 0);
+                targetRotation = Quaternion.Euler(35, currentTarget.eulerAngles.y, 0);
 
                 transform.rotation = Quaternion.Lerp( transform.rotation,
                                                       targetRotation,
@@ -50,13 +46,10 @@ public class CameraFollow : MonoBehaviour {
             }
         } else {
             transform.position = Vector3.Lerp(transform.position,
-                                   currentTarget.position + Vector3.up * 10,
+                                   currentTarget.position + Vector3.up * 10 + currentTarget.forward * 2,
                                    smoothPosition * Time.deltaTime);
             if (followRotation) {
-                targetRotation = new Quaternion(currentTarget.rotation.x, currentTarget.rotation.y,
-                                currentTarget.rotation.z, currentTarget.rotation.w);
-
-                targetRotation *= Quaternion.Euler(90, 0, 0);
+                targetRotation = Quaternion.Euler(90, currentTarget.eulerAngles.y, 0);
 
                 transform.rotation = Quaternion.Lerp(transform.rotation,
                                                       targetRotation,

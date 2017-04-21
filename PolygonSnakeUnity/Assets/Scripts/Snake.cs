@@ -33,6 +33,13 @@ public class Snake : MonoBehaviour {
 
     private void Update() {
         transform.Translate(0, 0, speed * Time.deltaTime);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up*10, Vector3.down, out hit)) {
+            transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+        } else {
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        }
+
         if (Input.GetAxisRaw("Horizontal") != 0) {
             transform.Rotate(Input.GetAxisRaw("Horizontal") * Vector3.up * speedRotation * Time.deltaTime);
         }
