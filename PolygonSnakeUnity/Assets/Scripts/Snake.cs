@@ -45,15 +45,19 @@ public class Snake : MonoBehaviour {
         }
 
         queue[0].transform.LookAt(transform.position - transform.forward * 0.5f);
-        queue[0].transform.Translate(0, 0, speed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, queue[0].transform.position) < 1) {
-            queue[0].transform.Translate(0, 0, Vector3.Distance(transform.position, queue[0].transform.position) - 1);
+        float d = Vector3.Distance(transform.position, queue[0].transform.position);
+        if (d > 1) {
+            queue[0].transform.Translate(0, 0, d - 1);
+        } else if (d < 1) {
+            queue[0].transform.Translate(0, 0, d + 1);
         }
         for (int i = 1; i < queue.Count; i++) {
             queue[i].transform.LookAt(queue[i - 1].transform.position - queue[i - 1].transform.forward*0.5f);
-            queue[i].transform.Translate(0, 0, speed * Time.deltaTime);
-            if(Vector3.Distance(queue[i].transform.position, queue[i-1].transform.position) < 1){
-                queue[i].transform.Translate(0, 0, Vector3.Distance(queue[i].transform.position, queue[i - 1].transform.position)-1);
+            d = Vector3.Distance(queue[i].transform.position, queue[i - 1].transform.position);
+            if (d > 1){
+                queue[i].transform.Translate(0, 0, d - 1);
+            } else if (d < 1) {
+                queue[i].transform.Translate(0, 0, d + 1);
             }
         }
     }
